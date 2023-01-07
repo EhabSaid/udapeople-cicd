@@ -72,3 +72,4 @@ dist
 
 production.env
 development.env
+udacity.pem
