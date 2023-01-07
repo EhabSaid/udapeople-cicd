@@ -1,3 +1,4 @@
+
 *~
 *.sw[mnpcod]
 *.log
@@ -68,3 +69,6 @@ node_modules
 
 .env
 dist
+
+production.env
+development.env
