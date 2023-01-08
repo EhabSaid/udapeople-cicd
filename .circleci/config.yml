@@ -396,12 +396,6 @@ jobs:
       - install_awscli
       - install_nodejs
       - run:
-          name: Get old stack workflow id
-          command: |
-            # your code here
-            export OldWorkflowID="the id here"
-            export STACKS=[] #put the list of stacks here
-      - run:
           name: Remove old stacks and files
           command: |
             export STACKS=($(aws cloudformation list-stacks \
@@ -409,18 +403,17 @@ jobs:
             --stack-status-filter CREATE_COMPLETE --no-paginate --output text)) 
             echo Stack names: "${STACKS[@]}"     
             
-            export OLDWORKFLOWID=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/old_workflow_id)
-            echo Old Workflow ID: udapeople-$OLDWORKFLOWID
+            export OldworkflowID=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/old_workflow_id)
+            echo Old Workflow ID: udapeople-$OldworkflowID
 
 
-            if [[ "${STACKS[@]}" =~ "${OldWorkflowID}" ]]
+            if [[ "${STACKS[@]}" =~ "${OldworkflowID}" ]]
             then
-              aws s3 rm "s3://udapeople-${OLDWORKFLOWID}" --recursive
-              aws cloudformation delete-stack --stack-name "udapeople-backend-${OLDWORKFLOWID}"
-              aws cloudformation delete-stack --stack-name "udapeople-frontend-${OLDWORKFLOWID}"
+              aws s3 rm "s3://udapeople-${OldworkflowID}" --recursive
+              aws cloudformation delete-stack --stack-name "udapeople-backend-${OldworkflowID}"
+              aws cloudformation delete-stack --stack-name "udapeople-frontend-${OldworkflowID}"
               echo cleaning confirmed
             fi
-            
 
 workflows:
   default:
