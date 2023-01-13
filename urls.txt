@@ -2,14 +2,11 @@
 Github Repository Link [URL01]
 https://github.com/EhabSaid/udapeople-cicd
 
-################## Last update for this Links on dev-branch #######################
-
 Public URL for your S3 Bucket (aka, your green candidate front-end) [URL02]
-http://udapeople-55bf7fe.s3-website-us-east-1.amazonaws.com
+http://udapeople-eb13943.s3-website-us-east-1.amazonaws.com
 
 Website Link
-http://udapeople-55bf7fe.s3-website-us-east-1.amazonaws.com
+http://udapeople-eb13943.s3-website-us-east-1.amazonaws.com
 
 CloudFront Link [URL03]     // Only work with http not https
 http://d3doj2ypvtf72r.cloudfront.net
-
